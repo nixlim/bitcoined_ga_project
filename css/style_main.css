@@ -1,0 +1,629 @@
+/* 
+Project Name: Bitcoined
+Author: Igor Ryabchuk
+Developer @GA in LON
+Dec '13
+*/
+
+
+/******************************************
+/* DEBUG - BOX TOOL                  
+/*******************************************/
+
+/**{
+     border: 1px solid black;
+}*/
+
+/******************************************
+/* SETUP                   
+/*******************************************/
+
+/* Box Model Hack */
+* {
+     -moz-box-sizing: border-box; /* Firexfox */
+     -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+     box-sizing: border-box; /* IE */
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.alignright {
+	float: right; 
+	padding: 0 0 20% 20%; /* note the padding around a right floated image */*/
+}
+
+.alignleft {
+	float: left; 
+	/*padding: 0 20% 20% 0;*/ /* note the padding around a left floated image */*/
+}
+
+/******************************************
+/* BASE STYLES                   
+/*******************************************/
+body {
+     color: white;
+     font-size: 16px;
+     line-height: 1.4;
+     font-family: Helvetica, Arial, sans-serif;
+     background:
+          radial-gradient(black 15%, transparent 16%) 0 0,
+          radial-gradient(black 15%, transparent 16%) 8px 8px,
+          radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+          radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+     background-color:#282828;
+     background-size:16px 16px;
+}
+
+
+
+nav a{
+     text-decoration: none;
+     color:white;
+}
+
+article {
+     text-align: justify;
+     display: block;
+}
+
+article a{
+     text-decoration: none;
+     color:white;
+     font-family: "Graduate";
+     font-size: 0.75em;
+     text-align: right;
+}
+
+h1, h2, h3, h4 {
+     font-family: "Graduate";
+
+}
+
+/******************************************
+/* LAYOUT                   
+/*******************************************/
+
+/* Center the container */
+#container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+
+}
+
+footer {
+
+}
+
+/*ADDITIONAL GLOBALS*/
+
+/*Image replacement, sort of*/
+.ir {
+  position: fixed;
+  visibility: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/******************************************
+/* up to 768px
+/*******************************************/
+
+@media only screen and (max-width: 50em) {
+
+
+  
+#infographic_img {
+  display: none;
+}
+
+#left_corner {
+  color: white;
+}
+
+
+
+#left_panel nav{
+  display: none;
+}
+
+#nav {
+  display: none;
+}
+
+h3 {
+  padding-top: 20px;
+}
+
+/*.menu_nav {
+  display: inline-block;
+  border-left: 1px solid yellow;
+}
+
+#navBar_mobile > ul >ul {
+  display: none;
+}
+
+#navBar_mobile > ul >ul:hover {
+  display: block;
+}*/
+
+
+#content_panel {
+  position: relative;
+  display: block;
+  padding: 0 5px 0 5px;
+    /*  top: 600px;
+     display:block;
+     padding: 5px;
+     left:0;
+     width: 100%;
+     z-index: 9999;*/
+}
+
+
+#right_panel {
+    position: relative;
+    display: block;
+   /* top: 10%;
+    left: 20px;
+    margin: auto;
+    width: 100%;
+    z-index: 9999;*/
+    
+
+}
+
+
+.fa-bitcoin:before, .fa-btc:before {
+content: "\f15a";
+color: #f89f37;
+}
+
+/*.left_corner {
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+  z-index: 1;  
+}*/
+
+.left_corner_logo {
+  display: none;
+/*  position: relative;
+  margin-top: 5px;
+  left: 30%*/
+  }
+.right_text_clr {
+  color: rgb(31, 212, 31);
+}
+
+/**************************/
+/*MODAL BOXES CSS*/
+/*************************/
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 10000008;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+
+.modalDialog:target {
+  opacity:1;
+  overflow: scroll;
+  pointer-events: auto;
+}
+
+.modalDialog > div {
+  width: 85%;
+  position: relative;
+  margin: 0;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+}
+
+#imgBackground {
+  background:black;
+}
+
+.modalDialog > div > img {
+  width: 100%;
+  max-height:10000px;
+  position: relative;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.modalDialog h2 {
+  color: black;
+}
+
+.close {
+  z-index: 2;
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: fixed;
+  right: 15%;
+  text-align: center;
+  top: 5%;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { 
+  background: #00d9ff; 
+}
+
+}
+
+
+/******************************************
+/* 768px and up
+/*******************************************/
+
+@media only screen and (min-width: 50em) and (max-width: 1200px) {
+
+#infographic_img {
+     position: absolute;
+     /*top:10%;
+     right:1%;*/
+     width: 100%;
+    /* z-index: 10000000;*/
+}
+
+#navBar_mobile {
+  display: none;
+}
+
+
+#left_panel nav{
+  display: none;
+}
+
+h3 {
+  padding-top: 20px;
+}
+
+
+
+#content_panel {
+     position: absolute;
+     padding: 5px;
+     top: 10px;
+     left:0;
+     width: 60%;
+     z-index: 9999;
+}
+
+
+#right_panel {
+     position: fixed;
+     vertical-align: top;
+     top:10%;
+     right: -4%;
+     width: 40%;
+     margin-left: 1%;
+     z-index: 9999;
+     clear: both;
+
+}
+
+
+.fa-bitcoin:before, .fa-btc:before {
+content: "\f15a";
+color: #f89f37;
+}
+
+/*.left_corner {
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+  z-index: 1;  
+}*/
+
+.left_corner_logo {
+  display: none;
+  }
+
+.right_text_clr {
+  color: rgb(31, 212, 31);
+}
+
+/**************************/
+/*MODAL BOXES CSS*/
+/*************************/
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 10000008;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+
+.modalDialog:target {
+  opacity:1;
+  overflow: scroll;
+  pointer-events: auto;
+}
+
+.modalDialog > div {
+  width: 85%;
+  position: relative;
+  margin: 0;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+}
+
+#imgBackground {
+  background:black;
+}
+
+.modalDialog > div > img {
+  width: 100%;
+  max-height:10000px;
+  position: relative;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.modalDialog h2 {
+  color: black;
+}
+
+.close {
+  z-index: 2;
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: fixed;
+  right: 15%;
+  text-align: center;
+  top: 5%;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { 
+  background: #00d9ff; 
+}
+}
+
+
+
+
+
+/******************************************
+/* 1200px and up
+/*******************************************/
+
+@media only screen and (min-width: 1200px) {
+
+
+#infographic_img {
+     position:absolute;
+     top:10%;
+     right:1%;
+     /*width: 50%;*/
+     z-index: 100000;
+}
+
+
+
+
+
+
+/******************************************
+/* ADDITIONAL STYLES                   
+/*******************************************/
+
+#nav {
+  visibility: hidden;
+}
+
+#navBar_mobile {
+  display: none;
+}
+
+#left_panel {
+    /*float: left;*/
+     position: fixed;
+     top:10%;
+     left:-15%;
+     width: 450px;
+     height: 50%;
+     text-align: right;
+     z-index: 9999;
+     margin: 0;
+     padding-right: 20px;
+}
+
+
+#content_panel {
+     position: absolute;
+     padding-left: 1px;
+     vertical-align: top;
+     top: 7%;
+     left:25%;
+     width: 45%;
+     z-index: 9999;
+}
+
+
+#right_panel {
+     position: fixed;
+     vertical-align: top;
+     top:10%;
+     right: -6%;
+     width: 30%;
+     margin-left: 1%;
+     z-index: 9999;
+
+}
+
+
+.menu_head {
+     /*border-bottom:1px solid black;*/
+     color: white;
+     font-family: 'Graduate';
+     font-size: 1.125em;
+     font-weight: 800;
+     text-decoration: underline;
+     margin-top: 1px;
+}
+
+.right_text_clr {
+  color: rgb(31, 212, 31);
+}
+
+
+.fa-bitcoin:before, .fa-btc:before {
+content: "\f15a";
+color: #f89f37;
+}
+
+
+.left_corner_logo {
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+  z-index: 1;  
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+/**************************/
+/*MODAL BOXES CSS*/
+/*************************/
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 10000006;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+
+.modalDialog:target {
+  opacity:1;
+  overflow: scroll;
+  pointer-events: auto;
+}
+
+.modalDialog > div {
+  width: 850px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+}
+
+#imgBackground {
+  background:black;
+}
+
+.modalDialog > div > img {
+  width: 800px;
+  max-height:10000px;
+  position: relative;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.modalDialog h2 {
+  color: black;
+}
+
+.close {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: fixed;
+  right: 50px;
+  text-align: center;
+  top: 50px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { 
+  background: #00d9ff; 
+}
+}
