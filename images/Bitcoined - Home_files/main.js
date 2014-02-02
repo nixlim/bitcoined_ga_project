@@ -140,7 +140,7 @@ $.ajax({
            	 $("#"+id).html(textLabel +"<span class=\"right_text_clr\">" + numberFormat(data)+"</span>");
            	};
 
-           	//if the server's down, we'll know :)
+           	//never seen this work so it's either I am using it wrong or there has been no fails
            },
            error: function (xhr, textStatus, errorThrown) {
                alert("Error: " + (errorThrown ? errorThrown : xhr.status));
@@ -171,7 +171,6 @@ $.ajax({
 	            success: function (dataRec) {
 
                 //This processes the JSON data into the form we need
-                //This was originally coded before the JSON class @ GA.
 
 	            	var array = JSON.parse("[" + dataRec + "]");
 	            	// console.log(array);
@@ -193,7 +192,7 @@ $.ajax({
 	            	var test = eval(graphArrayF.replace(/"/g,"")).reverse();
 
 	            	
-	            	// console.log(test);
+	            	console.log(test);
 
 	            	//draw the chart for price
 	  
