@@ -15,11 +15,9 @@ This project has the following features:
 
 Igor Ryabchuk
 FEWD 10, GA London
-=======
+
 See it here: http://nixlim.github.io/bitcoined_ga_project/
 
 Igor Ryabchuk
 FEWD 10, GA London
-
->>>>>>> master
 Loved the course, I recommend it highly.
