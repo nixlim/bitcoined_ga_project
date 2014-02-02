@@ -84,12 +84,6 @@ article a{
      font-family: "Graduate";
      font-size: 0.75em;
      text-align: right;
-     margin: 1px 0 1px;
-}
-
-article p {
-
-     font-size: 1.15em;
 }
 
 h1, h2, h3, h4 {
@@ -98,7 +92,7 @@ h1, h2, h3, h4 {
 }
 
 p {
-  margin: 10px 0 10px;
+  margin: 0 0 10px;
 }
 
 /******************************************

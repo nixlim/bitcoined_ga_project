@@ -18,10 +18,6 @@ background-size: cover;
 -webkit-animation: rotatecircle 4s linear;
 }
 
-.icon:hover {
--moz-animation: rotatecircle 4s infinite linear;
--webkit-animation: rotatecircle 4s linear;
-}
 
 .outerCircle {
 background-color: transparent;
