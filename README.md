@@ -12,6 +12,14 @@ This project has the following features:
 6. Vendor Modules: JSCharts
 7. JSON API Interaction
 
+<<<<<<< HEAD
 Igor Ryabchuk
 FEWD 10, GA London
+=======
+See it here: http://nixlim.github.io/bitcoined_ga_project/
+
+Igor Ryabchuk
+FEWD 10, GA London
+
+>>>>>>> master
 Loved the course, I recommend it highly.
